@@ -1,0 +1,15 @@
+DrugPricLmtRemoteService,get,/drug/pric_lmt/query
+,post,/drug/pric_lmt/queryList
+,post,/drug/pric_lmt/remove
+,post,/drug/pric_lmt/save
+,post,/drug/pric_lmt/update
+DrugPubonlnService,post,/pubonln/drug/adjust
+,post,/pubonln/drug/publish
+,post,/pubonln/drug/query
+McsPubonlnService,post,/pubonln/mcs/adjust
+,post,/pubonln/mcs/publish
+,post,/pubonln/mcs/query
+MedinsPrucPlanService,post,/medins/purc/plan/query
+,post,/medins/purc/plan/save
+MedinsPurcOrdInService,post,/tpc/medinsPurc/publish
+,post,/tpc/medinsPurc/queryList

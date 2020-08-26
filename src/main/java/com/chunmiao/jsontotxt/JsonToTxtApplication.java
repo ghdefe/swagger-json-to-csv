@@ -26,11 +26,14 @@ public class JsonToTxtApplication {
         Iterator<String> stringIterator = node.fieldNames();
         while (stringIterator.hasNext()) {
             JsonNode tags = node.findValue((api = stringIterator.next())); //api
-            String name = tags.findValue("tags").get(0).asText(); //名称
-            Iterator<String> methods = tags.fieldNames();
-            while (methods.hasNext()) {
-                String method = methods.next(); //方法
-                Root root = new Root(name, method, api);  //当前查询到的一个接口数据
+            Iterator<String> methodsname = tags.fieldNames();
+            while (methodsname.hasNext()) {
+                String method = methodsname.next(); //方法
+                JsonNode methods = tags.findValue(method);
+                String name = methods.findValue("tags").get(0).asText();
+                String description = methods.findValue("description").asText();
+
+                Root root = new Root(name, method, api,description);  //当前查询到的一个接口数据
                 //放到hashmap里管理
                 if (hm.containsKey(root.getName())) {
                     List<Root> roots = hm.get(root.getName());
@@ -67,7 +70,7 @@ public class JsonToTxtApplication {
                 }
                 Root next = iterator1.next();
                 bufferedWriter.write(next.getMethod() + "," +
-                        next.getApi());
+                        next.getApi() + "," + next.getDescription());
                 bufferedWriter.newLine();
             }
 
@@ -85,7 +88,7 @@ public class JsonToTxtApplication {
 //                        + api);
 //                bufferedWriter.newLine();
 //        bufferedWriter.close();
-        Runtime.getRuntime().exec("cmd /c start F:/Project/json-to-txt/result.csv");
+        Runtime.getRuntime().exec("cmd /c start F:/Project/JsonSoup/result.csv");
         System.out.println("done");
 
 

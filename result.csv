@@ -1,0 +1,20 @@
+account-resource,get,/api/account,OK
+,post,/api/account,userDTO
+,post,/api/account/change-password,passwordChangeDto
+,post,/api/account/reset-password/finish,keyAndPassword
+,post,/api/account/reset-password/init,mail
+,get,/api/activate,key
+,get,/api/authenticate,OK
+,post,/api/register,managedUserVM
+employee-resource,get,/api/employees,OK
+,post,/api/employees,employee
+,put,/api/employees,employee
+,get,/api/employees/{id},id
+,delete,/api/employees/{id},id
+user-jwt-controller,post,/api/authenticate,loginVM
+user-resource,get,/api/users,Page number of the requested page
+,post,/api/users,userDTO
+,put,/api/users,userDTO
+,get,/api/users/authorities,OK
+,get,/api/users/{login:^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$},login
+,delete,/api/users/{login:^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$},login
